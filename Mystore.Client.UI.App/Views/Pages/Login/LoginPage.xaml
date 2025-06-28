@@ -1,0 +1,214 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:viewmodel="clr-namespace:Mystore.Client.UI.App.ViewModels"
+             x:Class="Mystore.Client.UI.App.Views.Pages.LoginPage">
+    <ContentPage.BindingContext>
+        <viewmodel:LoginPageViewModel />
+    </ContentPage.BindingContext>
+    <Grid>
+        <Image
+     Aspect="AspectFill"
+     AutomationId="BackgroundImage"
+     HeightRequest="500"
+     Source="Images/login-bg.jpg"
+     WidthRequest="500" />
+        <ScrollView>
+            <Grid
+    ColumnSpacing="0"
+    HorizontalOptions="Fill"
+    RowSpacing="0"
+    VerticalOptions="Fill">
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="20*" />
+                    <RowDefinition Height="50*" />
+                    <RowDefinition Height="20*" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="33.33*" />
+                    <ColumnDefinition Width="33.33*" />
+                    <ColumnDefinition Width="33.33*" />
+                </Grid.ColumnDefinitions>
+
+
+                <StackLayout
+         Grid.Row="0"
+         Grid.Column="1"
+         Margin="10"
+         AutomationId="ClaimText"
+         HorizontalOptions="Center"
+         Orientation="Vertical"
+         VerticalOptions="Center">
+                    <Image
+             Aspect="AspectFit"
+             AutomationId="AngelLogo"
+             HorizontalOptions="Center"
+             Source="Images/AngelLogo.png"
+             VerticalOptions="Center" />
+                </StackLayout>
+
+                <Grid
+       Grid.Row="1"
+       Grid.Column="1"
+       Margin="0"
+       Padding="0"
+       ColumnSpacing="0"
+       RowSpacing="0"
+       VerticalOptions="CenterAndExpand">
+
+                    <StackLayout
+           Grid.Row="0"
+           Margin="0"
+           AutomationId="LoginFieldContainer"
+           HorizontalOptions="CenterAndExpand"
+           Orientation="Vertical"
+           Spacing="20"
+           VerticalOptions="Start">
+                        <Label
+               Margin="0,0,0,0"
+               HorizontalTextAlignment="Start"
+               Text="Login"
+               TextColor="#556684"
+               VerticalTextAlignment="Center">
+
+                            <Label.FontSize>
+                                <OnIdiom
+                       x:TypeArguments="x:Double"
+                       Default="30"
+                       Tablet="30" />
+                            </Label.FontSize>
+                        </Label>
+
+                        <!--  -USER ID  -->
+                        <StackLayout Padding="0">
+                            <Label
+                   AutomationId="UserIdHeader"
+                   HorizontalOptions="Start"
+                   HorizontalTextAlignment="Start"
+                   Text="User ID"
+                   TextColor="Gray"
+                   VerticalOptions="Center" />
+                            <Entry
+                   x:Name="userId"
+                   AutomationId="InputUserId"
+                   HorizontalOptions="CenterAndExpand"
+                   HorizontalTextAlignment="Start"
+                   Keyboard="Text"
+                   MaxLength="100"
+                   Placeholder="Enter User Id"
+                   Text="{Binding Username}"
+                   WidthRequest="300" />
+
+                            <!--<ext:RoundEntry x:Name="userId"
+                               HorizontalOptions="CenterAndExpand"
+                               HorizontalTextAlignment="Start"
+                               Keyboard="Text"
+                               MaxLength="100"
+                               Placeholder="Enter User Id"
+                               Text="{Binding UserId}" />-->
+
+                        </StackLayout>
+
+                        <!--  -PASSWORD  -->
+                        <StackLayout Padding="0">
+                            <Label
+                   AutomationId="PasswordHeader"
+                   HorizontalOptions="Start"
+                   HorizontalTextAlignment="Start"
+                   Text="Password"
+                   TextColor="Gray"
+                   VerticalOptions="Center" />
+                            <Entry
+                   x:Name="password"
+                   AutomationId="InputPassword"
+                   HorizontalOptions="CenterAndExpand"
+                   HorizontalTextAlignment="Start"
+                   IsPassword="True"
+                   Keyboard="Text"
+                   MaxLength="100"
+                   Placeholder="Enter password"
+                   ReturnCommand="{Binding LoginCommand}"
+                   ReturnCommandParameter="FromLogin"
+                   Text="{Binding Password}"
+                   WidthRequest="300" />
+                        </StackLayout>
+
+                        <Frame
+    x:Name="LoginButton"
+    Padding="50,10,50,10"
+    BackgroundColor="{DynamicResource BrandBackgroundColor}"
+    CornerRadius="8"
+    VerticalOptions="End">
+                            <Label
+        AutomationId="BtnLogin"
+        HorizontalOptions="CenterAndExpand"
+        HorizontalTextAlignment="Center"
+        Text="Login"
+        TextColor="White"
+        VerticalTextAlignment="Center" />
+                            <Frame.Triggers>
+                                <DataTrigger
+            Binding="{Binding IsValid}"
+            TargetType="Frame"
+            Value="True">
+                                    <Setter Property="BackgroundColor" Value="{DynamicResource BrandBackgroundColor}" />
+                                    <Setter Property="IsEnabled" Value="True" />
+                                </DataTrigger>
+                                <DataTrigger
+            Binding="{Binding IsValid}"
+            TargetType="Frame"
+            Value="False">
+                                    <Setter Property="BackgroundColor" Value="Gray" />
+                                    <Setter Property="IsEnabled" Value="False" />
+                                </DataTrigger>
+                            </Frame.Triggers>
+                            <Frame.GestureRecognizers>
+                                <TapGestureRecognizer
+            Command="{Binding LoginCommand}"
+            CommandParameter="FromLogin"
+            NumberOfTapsRequired="1" />
+                            </Frame.GestureRecognizers>
+                        </Frame>
+                        <StackLayout
+               Padding="50,10,50,0"
+               AutomationId="ForgotPasswordButton"
+               VerticalOptions="End">
+                            <Label
+                   AutomationId="ForgotPasswordString"
+                   HorizontalOptions="CenterAndExpand"
+                   HorizontalTextAlignment="Center"
+                   Text="Forgot Password?"
+                   TextColor="Black"
+                   TextDecorations="Underline"
+                   VerticalTextAlignment="Center">
+                                <Label.GestureRecognizers>
+                                    <TapGestureRecognizer
+                           Command="{Binding CommandForgotPassword}"
+                           CommandParameter="{Binding .}"
+                           NumberOfTapsRequired="1" />
+                                </Label.GestureRecognizers>
+                            </Label>
+                        </StackLayout>
+                    </StackLayout>
+
+                </Grid>
+                <StackLayout
+    Grid.Row="2"
+    Grid.Column="1"
+    Margin="0,0,0,10"
+    AutomationId="Version"
+    HorizontalOptions="Center"
+    VerticalOptions="Center">
+                    <Label
+        AutomationId="VersionString"
+        FontSize="9"
+        HorizontalTextAlignment="Center"
+        Text="{Binding AppVersion, StringFormat='Version {0}'}" />
+                    <Label FontSize="9" Text="MyStore.Inc" />
+                </StackLayout>
+            </Grid>
+
+        </ScrollView>
+    </Grid>
+</ContentPage>

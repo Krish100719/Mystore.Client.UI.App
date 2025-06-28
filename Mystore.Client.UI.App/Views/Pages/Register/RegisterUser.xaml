@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewmodel="clr-namespace:Mystore.Client.UI.App.ViewModels"
+             x:Class="Mystore.Client.UI.App.Views.Pages.RegisterUser">
+    <ContentPage.Content>
+      <ScrollView>
+        <VerticalStackLayout Padding="30" Spacing="20">
+
+          <Label Text="Create your account" FontAttributes="Bold" FontSize="24" HorizontalOptions="Center" />
+
+          <Entry x:Name="UsernameEntry" Placeholder="Username" />
+
+          <Entry x:Name="EmailEntry" Placeholder="Email" Keyboard="Email" />
+
+          <Entry x:Name="PasswordEntry" Placeholder="Password" IsPassword="True" />
+
+          <Entry x:Name="ConfirmPasswordEntry" Placeholder="Confirm Password" IsPassword="True" />
+
+          <Button Text="Register" Command="{Binding LoginCommand}" />
+
+        </VerticalStackLayout>
+      </ScrollView>
+    </ContentPage.Content>
+</ContentPage>
