@@ -12,6 +12,11 @@
         Route="LoginPage"
         Shell.FlyoutBehavior="Disabled"
         Shell.FlyoutItemIsVisible="False"/>
+    <ShellContent
+     ContentTemplate="{DataTemplate pages:RegisterUser}"
+     Route="RegisterUser"
+        Shell.FlyoutBehavior="Disabled"
+Shell.FlyoutItemIsVisible="False"/>
 
     <TabBar FlyoutDisplayOptions="AsMultipleItems">
         <ShellContent

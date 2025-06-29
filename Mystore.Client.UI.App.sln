@@ -1,6 +1,6 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.13.35931.197 d17.13
+VisualStudioVersion = 17.13.35931.197
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mystore.Client.UI.App", "Mystore.Client.UI.App\Mystore.Client.UI.App.csproj", "{215D2671-7FD5-4C68-99EB-E6D80B515C67}"
 EndProject
@@ -11,6 +11,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mystore.Client.UI.App.Mac", "Mystore.Client.UI.App.Mac\Mystore.Client.UI.App.Mac.csproj", "{FB88810A-FFA7-4916-90DF-708EEBB2CF51}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mystore.Client.UI.App.WinUI", "Mystore.Client.UI.App.WinUI\Mystore.Client.UI.App.WinUI.csproj", "{05AE9F3D-6239-49FA-964B-4A1E7A37700D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mystore.SIS.Client.Common.Framework", "Mystore.SIS.Client.Common.Framework\Mystore.SIS.Client.Common.Framework.csproj", "{E4D04B75-C96F-4A37-A6AE-3E1A8EAA7B1D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -46,6 +48,10 @@ Global
 		{05AE9F3D-6239-49FA-964B-4A1E7A37700D}.Release|Any CPU.ActiveCfg = Release|x64
 		{05AE9F3D-6239-49FA-964B-4A1E7A37700D}.Release|Any CPU.Build.0 = Release|x64
 		{05AE9F3D-6239-49FA-964B-4A1E7A37700D}.Release|Any CPU.Deploy.0 = Release|x64
+		{E4D04B75-C96F-4A37-A6AE-3E1A8EAA7B1D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E4D04B75-C96F-4A37-A6AE-3E1A8EAA7B1D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E4D04B75-C96F-4A37-A6AE-3E1A8EAA7B1D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E4D04B75-C96F-4A37-A6AE-3E1A8EAA7B1D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

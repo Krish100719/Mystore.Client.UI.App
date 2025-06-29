@@ -20,6 +20,16 @@
 		<!-- Raw Assets (also remove the "Resources\Raw" prefix) -->
 		<MauiAsset Include="Resources\Raw\**" LogicalName="%(RecursiveDir)%(Filename)%(Extension)" />
 	</ItemGroup>
+
+	<ItemGroup>
+	  <MauiImage Remove="Resources\Images\login_bg.png" />
+	  <MauiImage Remove="Resources\Images\logo.png" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Content Include="Resources\Images\login_bg.png" TargetPath="%(Filename)%(Extension)" />
+	  <Content Include="Resources\Images\logo.png" />
+	</ItemGroup>
 	
 
 
@@ -31,12 +41,18 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <Folder Include="Views\Navigation\" />
 	  <Folder Include="Views\ControlTemplates\" />
 	  <Folder Include="Views\Popups\" />
 	</ItemGroup>
 
 	<ItemGroup>
+	  <ProjectReference Include="..\Mystore.SIS.Client.Common.Framework\Mystore.SIS.Client.Common.Framework.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <MauiXaml Update="Views\Navigation\NavigationTitleView.xaml">
+	    <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Views\Pages\Register\RegisterUser.xaml">
 	    <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
 	  </MauiXaml>

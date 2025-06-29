@@ -11,6 +11,7 @@ namespace Mystore.Client.UI.App
             InitializeComponent();
             //Register all routes
             Routing.RegisterRoute(nameof(LoginPage), typeof(LoginPage));
+
         }
     }
 }

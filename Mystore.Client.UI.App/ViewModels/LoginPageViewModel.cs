@@ -79,7 +79,7 @@ namespace Mystore.Client.UI.App.ViewModels
 
         private async void Register()
         {
-            await Shell.Current.GoToAsync("RegisterPage"); // Assumes route is registered
+            await Shell.Current.GoToAsync("//RegisterUser"); // Assumes route is registered
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

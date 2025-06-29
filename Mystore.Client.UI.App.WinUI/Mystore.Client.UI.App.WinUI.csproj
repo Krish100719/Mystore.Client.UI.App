@@ -19,6 +19,7 @@
 	</PropertyGroup>
 
 	<ItemGroup>
+	  <Content Remove="Assets\login-bg.png" />
 	  <Content Remove="Assets\logo620x300.png" />
 	</ItemGroup>
 

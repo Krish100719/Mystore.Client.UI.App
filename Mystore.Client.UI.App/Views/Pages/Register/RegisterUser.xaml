@@ -3,9 +3,181 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:viewmodel="clr-namespace:Mystore.Client.UI.App.ViewModels"
              x:Class="Mystore.Client.UI.App.Views.Pages.RegisterUser">
+
+    <ContentPage.BindingContext>
+        <viewmodel:RegisterPageViewModel />
+    </ContentPage.BindingContext>
     <ContentPage.Content>
       <ScrollView>
-        <VerticalStackLayout Padding="30" Spacing="20">
+
+
+            <Grid ColumnSpacing="0" HorizontalOptions="Fill" 
+                  RowSpacing="0" VerticalOptions="Fill">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="10*" />
+                    <RowDefinition Height="80*" />
+                    <RowDefinition Height="10*" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="33*" />
+                    <ColumnDefinition Width="33*" />
+                    <ColumnDefinition Width="33*" />
+                </Grid.ColumnDefinitions>
+
+                <StackLayout Grid.Row="0" Grid.Column="1"
+                             Margin="10"
+                             AutomationId="ClaimText"
+                             HorizontalOptions="Center"
+                             Orientation="Vertical"
+                             VerticalOptions="Center">
+                    <Image
+                             Aspect="AspectFit"
+                             AutomationId="MyStoreLogo"
+                             HorizontalOptions="Center"
+                             Source="logo.png"
+                             VerticalOptions="Center" />
+                </StackLayout>
+
+                <Grid Grid.Row="1" Grid.Column="1"
+                      Margin="0"
+                      Padding="20"
+                      ColumnSpacing="0"
+                      RowSpacing="0"
+                      VerticalOptions="CenterAndExpand">
+                    <StackLayout  Grid.Row="0"
+                                 Margin="0"
+                                 AutomationId="RegisterFieldContainer"
+                                 HorizontalOptions="CenterAndExpand"
+                                 Orientation="Vertical"
+                                 Spacing="20"
+                                 VerticalOptions="Start">
+                        <Label  Margin="0,0,0,0"
+                                   HorizontalTextAlignment="Start"
+                                   Text="Register"
+                                   TextColor="#556684"
+                                   VerticalTextAlignment="Center">
+                            <Label.FontSize>
+                                <OnIdiom
+                                   x:TypeArguments="x:Double"
+                                   Default="30"
+                                   Tablet="30" />
+                            </Label.FontSize>
+                        </Label>
+
+                        <!--  -USER ID  -->
+                        <StackLayout Padding="0">
+                            <Label AutomationId="UserIdHeader"
+                                    HorizontalOptions="Start"
+                                    HorizontalTextAlignment="Start"
+                                    Text="User ID"
+                                    TextColor="Gray"
+                                    VerticalOptions="Center" />
+                            <Entry
+                                    x:Name="userId"
+                                    AutomationId="InputUserId"
+                                    HorizontalOptions="CenterAndExpand"
+                                    HorizontalTextAlignment="Start"
+                                    Keyboard="Text"
+                                    MaxLength="100"
+                                    Placeholder="Enter User Id"
+                                    Text="{Binding RegisterUserModel.UserName, Mode=TwoWay}"
+                                    WidthRequest="300" />
+
+                        </StackLayout>
+
+                        <!--  Email Address  -->
+                        <StackLayout Padding="0">
+                            <Label AutomationId="EmailIdHeader"
+                                    HorizontalOptions="Start"
+                                    HorizontalTextAlignment="Start"
+                                    Text="Email"
+                                    TextColor="Gray"
+                                    VerticalOptions="Center" />
+                            <Entry
+                                    x:Name="email"
+                                    AutomationId="InputEmailId"
+                                    HorizontalOptions="CenterAndExpand"
+                                    HorizontalTextAlignment="Start"
+                                    Keyboard="Text"
+                                    MaxLength="100"
+                                    Placeholder="Email"
+                                    Text="{Binding RegisterUserModel.Email , Mode=TwoWay}"
+                                    WidthRequest="300" />
+
+                        </StackLayout>
+
+                        <!--  Password  -->
+                        <StackLayout Padding="0">
+                            <Label AutomationId="PasswordHeader"
+                                     HorizontalOptions="Start"
+                                     HorizontalTextAlignment="Start"
+                                     Text="Email"
+                                     TextColor="Gray"
+                                     VerticalOptions="Center" />
+                             <Entry
+                                     x:Name="password"
+                                     AutomationId="InputPassword"
+                                     HorizontalOptions="CenterAndExpand"
+                                     HorizontalTextAlignment="Start"
+                                     Keyboard="Text"
+                                     MaxLength="100"
+                                     Placeholder="Password"
+                                     Text="{Binding RegisterUserModel.Password, Mode=TwoWay}"
+                                     WidthRequest="300" />
+
+                        </StackLayout>
+                        <!--  Password  -->
+                        <StackLayout Padding="0">
+                            <Label AutomationId="ConfirmPasswordHeader"
+                                  HorizontalOptions="Start"
+                                  HorizontalTextAlignment="Start"
+                                  Text="Confirm Password"
+                                  TextColor="Gray"
+                                  VerticalOptions="Center" />
+                            <Entry
+                                  x:Name="confirmPassword"
+                                  AutomationId="InputPassword"
+                                  HorizontalOptions="CenterAndExpand"
+                                  HorizontalTextAlignment="Start"
+                                  Keyboard="Text"
+                                  MaxLength="100"
+                                  Placeholder="Confirm Password"
+                                  Text="{Binding RegisterUserModel.ConfirmPassword, Mode=TwoWay}"
+                                  WidthRequest="300" />
+
+                        </StackLayout>
+                        <Frame
+                        x:Name="RegisterButton"
+                        Padding="50,10,50,10"
+                            
+                            
+                            
+                        BackgroundColor="{DynamicResource BrandBackgroundColor}"
+                        CornerRadius="8"
+                        VerticalOptions="End">
+                            <Label
+                            AutomationId="BtnRegister"
+                            HorizontalOptions="CenterAndExpand"
+                            HorizontalTextAlignment="Center"
+                            Text="Register"
+                            TextColor="White"
+                            VerticalTextAlignment="Center" />
+
+                            <Frame.GestureRecognizers>
+                                <TapGestureRecognizer
+                                Command="{Binding CommandRegisterUser}"
+                                CommandParameter="FromLogin"
+                                NumberOfTapsRequired="1" />
+                            </Frame.GestureRecognizers>
+                        </Frame>
+                    </StackLayout>
+                </Grid>
+            </Grid>
+
+
+
+
+            <!--<VerticalStackLayout Padding="30" Spacing="20">
 
           <Label Text="Create your account" FontAttributes="Bold" FontSize="24" HorizontalOptions="Center" />
 
@@ -17,9 +189,9 @@
 
           <Entry x:Name="ConfirmPasswordEntry" Placeholder="Confirm Password" IsPassword="True" />
 
-          <Button Text="Register" Command="{Binding LoginCommand}" />
+          <Button Text="Register" Command="{Binding CommandRegisterUser}" />
 
-        </VerticalStackLayout>
+        </VerticalStackLayout>-->
       </ScrollView>
     </ContentPage.Content>
 </ContentPage>
